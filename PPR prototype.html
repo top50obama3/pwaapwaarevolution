@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pwaa Pwaa Revolution</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      font-family: Georgia, serif;
+      color: #1a1a1a;
+      background: #fff;
+    }
+ 
+    /* Navigation */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      border-bottom: 1px solid #e5e5e5;
+      background: #1a1a1a;
+    }
+ 
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+ 
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+ 
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 15px;
+    }
+ 
+    .nav-links a:hover {
+      color: #000;
+    }
+ 
+    /* Tab sections */
+    .tab-section {
+      display: none;
+      padding: 60px 40px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+ 
+    .tab-section.active {
+      display: block;
+    }
+ 
+    h1 {
+     font-size: 60px;
+     text-align: center;
+     font-family: 'Arial', sans-serif;
+    }
+    h2 { font-size: 24px; margin-bottom: 12px; }
+    p  { font-size: 16px; line-height: 1.7; color: #444; margin-bottom: 16px; }
+ 
+    .btn {
+      display: block;
+      margin-bottom: 10px;
+      width: fit-content;    
+      padding: 10px 22px;
+      border: 1px solid #1a1a1a;
+      text-decoration: none;
+      color: #1a1a1a;
+      font-size: 14px;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+ 
+    .btn:hover {
+      background: #1a1a1a;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+ 
+  <nav>
+    <div class="logo">Pwaa Pwaa Revolution</div>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showTab('home')">Home</a></li>
+      <li><a href="#" onclick="showTab('wsc-info')">WSC Info</a></li>
+      <li><a href="#" onclick="showTab('resources')">Resources</a></li>
+      <li><a href="#" onclick="showTab('quiz')">Quiz</a></li>
+      <li><a href="#" onclick="showTab('team')">Team</a></li>
+    </ul>
+  </nav>
+ 
+  <!-- HOME -->
+   <section id="home" class="tab-section active">
+   <div style="background: #FBBF24; padding: 40px 400px; margin: -60px -400px 40px -400px;">
+     <h1>Welcome to Pwaa Pwaa Revolution!</h1>
+    </div>
+   <div style="background: #FBBF24; padding: 20px 40px 40px; margin: -40px -400px 0 -400px;">
+    <p>Your go-to guide for the World Scholars Cup — made by scholars, for scholars.</p>
+    <a href="#" class="btn" onclick="showTab('resources')">Browse the guide</a>
+    <a href="#" class="btn" onclick="showTab('quiz')" style="margin-left: 10px;">Take a quiz</a>
+   </div>
+  </section>
+ 
+  <!-- WSC INFO -->
+  <section id="wsc-info" class="tab-section">
+    <h1>What is the World Scholars Cup?</h1>
+    <p>Add your overview of WSC here — the rounds, the themes, how it works, etc.</p>
+  </section>
+ 
+  <!-- RESOURCES -->
+  <section id="resources" class="tab-section">
+    <h1>Resources</h1>
+    <p>Browse the guide by chapter:</p>
+    <a href="https://docs.google.com/document/d/1yiC9ZRQ7OF8KwtBPLIF25DovP2zhUZbTMJbI1y5Sep0/edit?tab=t.0" class="btn" target="_blank"> We're All in This to Get There </a>
+    <a href="https://docs.google.com/document/d/11OlFwajpSApiK3jS94M_dt9fW6CPipHBDvF5aPU6-jY/edit?tab=t.0" class="btn" target="_blank"> Monkey See, Monkey Prototype </a>
+    <a href="https://docs.google.com/document/d/1JblW24PlgkkWIcRYhSQKMOckE_2WBqpSFVyPpqosg8E/edit?tab=t.0" class="btn" target="_blank"> Where the Sidewalk Starts </a>
+    <a href="https://docs.google.com/document/d/1s0Ls0RDKxO8PDI7Zk9NWNoE4TVLZZ5DozlfEALur5h4/edit?tab=t.0" class="btn" target="_blank"> Progress, not Regress</a>
+    <a href="https://flightradar24.com" class="btn" target="_blank"> More to do That can Ever be Listed (access needs updating) </a>
+    <a href="https://docs.google.com/document/d/1vadyihn1lBOt5ryVrfef0ucnveOve-mPPZK31iOnpXI/edit?usp=sharing" class="btn" target="_blank"> There's a draft in here </a>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn" target="_blank"> The end is nearish (Chapter not availible on website yet, but you can access it through our Discord!)    </a>
+   </section>
+ 
+  <!-- QUIZ -->
+  <section id="quiz" class="tab-section">
+    <h1>Quiz</h1>
+    <p> This is a collection of all our quizzes, more wil be released soon! </p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdasLN6aNLi0fl-PPZIEUCIeo2LEwNOuthU4tKKtHs3YpKXQA/viewform" class="btn" target="_blank"> Progress, not Regress </a>
+  </section>
+ 
+  <!-- TEAM -->
+  <section id="team" class="tab-section">
+    <h1>The Team</h1>
+    <p>Introduce yourself and anyone else behind this project.</p>
+  </section>
+ 
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+ 
+</body>
+</html>
