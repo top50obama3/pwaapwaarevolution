@@ -45,6 +45,31 @@
     .nav-links a:hover {
       color: #fff;
     }
+
+    .dropdown {
+     display: none;
+      position: absolute;
+      background: #1a1a1a;
+      min-width: 160px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      z-index: 999;
+   }
+  
+      .dropdown a {
+       display: block;
+       padding: 10px 16px;
+       color: #fff;
+       font-size: 14px;
+    }
+
+     .dropdown a:hover {
+       background: #333;
+    }
+ 
+li:hover .dropdown {
+  display: block;
+}
  
     /* Tab sections */
     .tab-section {
@@ -91,7 +116,12 @@
     <div class="logo">Pwaa Pwaa Revolution</div>
     <ul class="nav-links">
       <li><a href="#" onclick="showTab('home')">Home</a></li>
-      <li><a href="#" onclick="showTab('wsc-info')">WSC Info</a></li>
+      <li style="position: relative;">
+         <a href="#" onclick="showTab('wsc-info')">WSC Info ▾</a>
+       <div class="dropdown">
+         <a href="#" onclick="showTab('wsc-info')">What is WSC</a>
+         <a href="#" onclick="showTab('wsc-calendar')">WSC Calendar</a>
+       </div></li>
       <li><a href="#" onclick="showTab('resources')">Resources</a></li>
       <li><a href="#" onclick="showTab('quiz')">Quiz</a></li>
       <li><a href="#" onclick="showTab('team')">Team</a></li>
@@ -203,12 +233,18 @@ h1 { font-family: Slab serif, Rockwell nova; }
       To find out how to perform well in Debate, check out our resources page! (admin, note a direct link will be added here soon to redirect to resource) </p><br>
   <img src="https://indianschoolsdebatingsociety.com/wp-content/uploads/2024/01/825x460_ddc.jpg" style="width: 400px; height: 340px; object-fit: cover; border-radius: 8px; display: block; margin: 0 auto;">
      <br><br><h4>Collaborative Writing:</h4><br>
-    <p>Poets and writers galore! You and your team will be provided with 2 sheets per member- a sheet showing your writing prompts, and the 2nd being the actual writing sheet.<br>
+   <p>Poets and writers galore! You and your team will be provided with 2 sheets per member- a sheet showing your writing prompts, and the 2nd being the actual writing sheet.<br>
       You will be given 20 mins to discuss with your team to choose a topic, and then you can decide on what to write, with teammates giving suggestions. You cannot choose the same prompt as your teammate.
       In these 20 mins, you are allowed to talk to your teammates. Following this is 45 mins of complete silence (<b><u>again admin is ts 40 or 45 mins????</u></b>), where everyone writes upon their chosen topic. Then you have 15 mins at the end to cross chack and discuss with your teammates.
       To find out how to improve your writing, check our resources (note to admin, redirect will be provided)</p>
      <br><br><h4>Scholar's Challenge:</h4><br>
     <p></p>
+  </section>
+
+  <!-- WSC CALENDAR -->
+  <section id="wsc-calendar" class="tab-section">
+  <h1>WSC Calendar</h1>
+  <p>Add the WSC event calendar here.</p>
   </section>
  
   <!-- RESOURCES -->
