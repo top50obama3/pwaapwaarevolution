@@ -113,7 +113,10 @@ li:hover .dropdown {
 <body>
  
   <nav>
+  <div style="display: flex; align-items: center; gap: 16px;">
+    <div onclick="toggleMenu()" style="cursor: pointer; font-size: 22px; color: #fff;">☰</div>
     <div class="logo">Pwaa Pwaa Revolution</div>
+  </div>
     <ul class="nav-links">
       <li><a href="#" onclick="showTab('home')">Home</a></li>
       <li style="position: relative;">
@@ -128,7 +131,18 @@ li:hover .dropdown {
       <li><a href="#" onclick="showTab('community')">Community</a></li>
     </ul>
   </nav>
- 
+
+<div id="side-menu" style="display: none; position: fixed; top: 0; left: 0; width: 250px; height: 100%; background: #1a1a1a; z-index: 9999; padding: 40px 20px;">
+<div onclick="toggleMenu()" style="color: #fff; font-size: 22px; cursor: pointer; margin-bottom: 30px;">✕</div>
+  <a href="#" onclick="showTab('home'); toggleMenu()" style="display: block; color: #fff; padding: 12px 0; border-bottom: 1px solid #333;">Home</a>
+  <a href="#" onclick="showTab('wsc-info'); toggleMenu()" style="display: block; color: #fff; padding: 12px 0; border-bottom: 1px solid #333;">WSC Info</a>
+  <a href="#" onclick="showTab('wsc-calendar'); toggleMenu()" style="display: block; color: #fff; padding: 12px 0; border-bottom: 1px solid #333;">WSC Calendar</a>
+  <a href="#" onclick="showTab('resources'); toggleMenu()" style="display: block; color: #fff; padding: 12px 0; border-bottom: 1px solid #333;">Resources</a>
+  <a href="#" onclick="showTab('quiz'); toggleMenu()" style="display: block; color: #fff; padding: 12px 0; border-bottom: 1px solid #333;">Quiz</a>
+  <a href="#" onclick="showTab('team'); toggleMenu()" style="display: block; color: #fff; padding: 12px 0; border-bottom: 1px solid #333;">Team</a>
+  <a href="#" onclick="showTab('community'); toggleMenu()" style="display: block; color: #fff; padding: 12px 0;">Community</a>
+</div>
+
   <!-- HOME -->
    <section id="home" class="tab-section active">
    <div style="background: #FFC000; padding: 40px 400px; margin: -60px -400px 40px -400px;">
@@ -331,6 +345,10 @@ h1 { font-family: Slab serif, Rockwell nova; }
     function showTab(id) {
       document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
       document.getElementById(id).classList.add('active');
+    }
+    function toggleMenu() {
+  const menu = document.getElementById('side-menu');
+    menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
     }
   </script>
  
