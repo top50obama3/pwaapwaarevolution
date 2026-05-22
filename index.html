@@ -7,13 +7,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --gold: #FFC000;
-      --gold-dark: #e6a800;
-      --black: #111010;
-      --off-white: #fafaf7;
-      --grey: #6b6b6b;
-      --light-border: #e2e2dc;
-    }
+  --gold: #FFC000;
+  --gold-dark: #e6a800;
+  --black: #111010;
+  --off-white: #fafaf7;
+  --grey: #6b6b6b;
+  --light-border: #e2e2dc;
+  --surface: #1c1c1c;
+  --surface-2: #333333;
+  --surface-3: #222222;
+  --surface-4: #1e1e1e;
+  --surface-5: #181818;
+  --surface-6: #444444;
+  --surface-7: #2a2a2a;
+  --white: #ffffff;
+  --cream: #fffbee;
+  --divider: #dddddd;
+}
+
+[data-theme="dark"] {
+  --gold: #FFD040;
+  --gold-dark: #FFC000;
+  --black: #e0e0e0;
+  --off-white: #121212;
+  --grey: #999999;
+  --light-border: #2a2a2a;
+  --surface: #2a2a2a;
+  --surface-2: #444444;
+  --surface-3: #2e2e2e;
+  --surface-4: #2a2a2a;
+  --surface-5: #222222;
+  --surface-6: #555555;
+  --surface-7: #383838;
+  --white: #1e1e1e;
+  --cream: #1a1a0e;
+  --divider: #333333;
+}
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -45,7 +74,7 @@
     .hamburger {
       cursor: pointer;
       font-size: 20px;
-      color: #fff;
+      color: var(--off-white);
       line-height: 1;
       padding: 4px;
     }
@@ -86,9 +115,9 @@ li:hover .dropdown {
   .dropdown {
   display: none;
   position: absolute;
-  background: #1c1c1c;
+  background: var(--surface);
   min-width: 170px;
-  border: 1px solid #333;
+  border: 1px solid var(--suface-2);
   border-radius: 6px;
   z-index: 999;
   top: calc(100% + 8px); 
@@ -110,11 +139,11 @@ li:hover .dropdown {
       padding: 11px 16px;
       color: rgba(255,255,255,0.8) !important;
       font-size: 13px;
-      border-bottom: 1px solid #2a2a2a;
+      border-bottom: 1px solid var(--surface-7);
     }
 
     .dropdown a:last-child { border-bottom: none; }
-    .dropdown a:hover { background: #2a2a2a; color: var(--gold) !important; }
+    .dropdown a:hover { background: var(--surface-7); color: var(--gold) !important; }
 
     li:hover .dropdown { display: block; }
     li { position: relative; }
@@ -137,7 +166,7 @@ li:hover .dropdown {
 
     .side-menu-header {
       padding: 20px 24px;
-      border-bottom: 1px solid #222;
+      border-bottom: 1px solid var(--surface-3);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -150,7 +179,7 @@ li:hover .dropdown {
     }
 
     .side-close {
-      color: #fff;
+      color: var(--white);
       font-size: 20px;
       cursor: pointer;
       opacity: 0.6;
@@ -165,13 +194,13 @@ li:hover .dropdown {
       font-size: 14px;
       font-weight: 500;
       text-decoration: none;
-      border-bottom: 1px solid #1e1e1e;
+      border-bottom: 1px solid var(--surface-4);
       transition: color 0.2s, background 0.2s;
     }
 
     #side-menu a:hover {
       color: var(--gold);
-      background: #181818;
+      background: var(--surface-5);
     }
 
     /* ── TAB SECTIONS ── */
@@ -252,7 +281,7 @@ li:hover .dropdown {
     }
 
     .btn-hero-dark:hover {
-      background: #2a2a2a;
+      background: var(--surface-7);
     }
 
     .btn-hero-outline {
@@ -298,7 +327,7 @@ li:hover .dropdown {
       margin: 0 auto;
       font-size: 15px;
       line-height: 1.7;
-      color: #444;
+      color: var(--surface-6);
     }
 
     .home-row {
@@ -341,7 +370,7 @@ li:hover .dropdown {
       display: inline-block;
       padding: 10px 22px;
       background: var(--black);
-      color: #fff;
+      color: var(--white);
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
       font-weight: 600;
@@ -367,7 +396,7 @@ li:hover .dropdown {
 
     .btn-outline:hover {
       background: var(--black);
-      color: #fff;
+      color: var(--white);
     }
 
     /* ── PAGE HEADER ── */
@@ -423,7 +452,7 @@ li:hover .dropdown {
     .page-content p {
       font-size: 15px;
       line-height: 1.8;
-      color: #444;
+      color: (--surface-6);
       margin-bottom: 14px;
     }
 
@@ -443,7 +472,7 @@ li:hover .dropdown {
       border-radius: 10px;
       padding: 28px;
       margin-bottom: 20px;
-      background: #fff;
+      background: var(--white);
       width: 100%;
     }
 
@@ -516,13 +545,13 @@ li:hover .dropdown {
       color: var(--black);
       font-size: 14px;
       font-weight: 500;
-      background: #fff;
+      background: var(--white);
       transition: all 0.2s;
     }
 
     .resource-card:hover {
       border-color: var(--gold);
-      background: #fffbee;
+      background: var(--cream);
     }
 
     .resource-card.coming-soon {
@@ -560,7 +589,7 @@ li:hover .dropdown {
     .quiz-card {
       display: block;
       padding: 24px;
-      background: #fff;
+      background: var(--white);
       border: 1.5px solid var(--light-border);
       border-radius: 10px;
       text-decoration: none;
@@ -572,7 +601,7 @@ li:hover .dropdown {
 
     .quiz-card:hover {
       border-color: var(--gold);
-      background: #fffbee;
+      background: var(--cream);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0,0,0,0.07);
     }
@@ -593,12 +622,12 @@ li:hover .dropdown {
 
     .team-card {
       padding: 40px;
-      background: #fff;
+      background: var(--white);
     }
 
-    .team-card:nth-child(1) { border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; }
-    .team-card:nth-child(2) { border-bottom: 1px solid #ddd; }
-    .team-card:nth-child(3) { border-right: 1px solid #ddd; }
+    .team-card:nth-child(1) { border-right: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
+    .team-card:nth-child(2) { border-bottom: 1px solid var(--divider); }
+    .team-card:nth-child(3) { border-right: 1px solid var(--divider); }
 
     .team-card img {
       width: 90px;
@@ -667,6 +696,7 @@ li:hover .dropdown {
       <li><a href="#" onclick="showTab('team')">Team</a></li>
       <li><a href="#" onclick="showTab('community')">Community</a></li>
     </ul>
+    <button id="theme-toggle" style="background: none; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; margin-left: 16px;">M</button>
   </nav>
 
   <div id="side-menu">
@@ -697,14 +727,14 @@ li:hover .dropdown {
 <hr class="section-divider"><br><br>
     <div class="announcements">
       <h4>Pwaa Pwaa revolution just finished conducting mock writing! You can now check out the prompts by going <a href="#" onclick="showTab('resources')" style="text-decoration: underline; font-weight: 600;">here!</a>
-      <br>Pwaa Pwaa Revolution is completely revamping its notes. YOu can check the resources tab for links both to the old and the new ones.
+      <br>Pwaa Pwaa Revolution is completely revamping its notes. You can check the resources tab for links to the old and the new ones.
         <br>Contact <b>pwaaapwaarevolution@gmail.com</b> for any issues</h4>
     </div>
     <br><hr class="section-divider">
     <div class="home-row">
       <div class="home-row-text">
         <h2>WSC Info</h2>
-        <p>What exactly is the World Scholars Cup? Find more about WSC, its events and the rounds</p>
+        <p>What exactly is the World Scholars Cup? Find more about WSC, its events, and the rounds</p>
         <a href="#" class="btn" onclick="showTab('wsc-info')">WSC Info →</a>
       </div>
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWI0GALQdsj1wsmI5K2pGiAW7RGwUd4ytr7w&s" alt="WSC Info">
@@ -715,7 +745,7 @@ li:hover .dropdown {
     <div class="home-row" style="flex-direction: row-reverse;">
       <div class="home-row-text">
         <h2>Resources</h2>
-        <p>How you can ace the Challenge with our curriculum, debate and writing practices.</p>
+        <p>How you can ace the Challenge with our curriculum, debate, and writing practices.</p>
         <a href="#" class="btn" onclick="showTab('resources')">View resources →</a>
       </div>
       <img src="https://images.pexels.com/photos/8199654/pexels-photo-8199654.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Resources">
@@ -793,7 +823,7 @@ li:hover .dropdown {
         <img src="https://scholarscup2.s3.amazonaws.com/static/img/home2021/9-bowl.webp" style="width: 100%; height: 260px; object-fit: cover; border-radius: 10px; margin-top: 16px;">
       </div>
 
-      <a href="https://scholarscup.org/events/" class="btn" target="_blank" style="color: #fff !important;"> Visit the official WSC website to find out more</a>
+      <a href="https://scholarscup.org/events/" class="btn" target="_blank" style="color: var(--white) !important;"> Visit the official WSC website to find out more</a>
     </div>
   </section>
 
@@ -1151,12 +1181,12 @@ li:hover .dropdown {
     </div>
   </section>
 
-  <footer style="margin-top: 60px; border-top: 1px solid #e2e2dc; padding: 40px 48px; background: #fff;">
-  <p style="font-size: 14px; color: #6b6b6b; margin-bottom: 12px;">
+  <footer style="margin-top: 60px; border-top: 1px solid var(--light-border); padding: 40px 48px; background: #fff;">
+  <p style="font-size: 14px; color: var(--grey); margin-bottom: 12px;">
     Pwaa Pwaa Revolution 2026 &copy; All Rights Reserved.
   </p>
   <br>
-  <p style="font-size: 13px; color: #6b6b6b; line-height: 1.7;">
+  <p style="font-size: 13px; color: var(--grey); line-height: 1.7;">
     The content of Pwaa Pwaa Revolution &copy; is unique to Pwaa Pwaa Revolution only, and shall NOT be duplicated or published by any means, in whole or in part, in any circumstance, without the permission of the administrators of Pwaa Pwaa Revolution or without explicitly stating that the content was made by and belongs to Pwaa Pwaa Revolution only.
   <br>
     <b><u>DISCLAIMER:</u></b> Pwaa Pwaa Revolution is NOT an official body, arm or subdivision of the World Scholars Cup &copy; and is NOT related to the World Scholar's Cup, or its members in any way. Rather, Pwaa Pwaa Revolution &copy; is a student-led guide whose main purpose is to help scholars navigate the events of the World Scholar's Cup, and to help prepare for them.</p>
@@ -1173,6 +1203,22 @@ li:hover .dropdown {
       const menu = document.getElementById('side-menu');
       menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
     }
+    
+    const toggleButton = document.getElementById('theme-toggle');
+   
+toggleButton.addEventListener('click', () => {
+ const currentTheme = document.documentElement.getAttribute('data-theme');
+ const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+ document.documentElement.setAttribute('data-theme', newTheme);
+ localStorage.setItem('theme', newTheme);
+ toggleButton.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+});
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  if (savedTheme === 'dark') toggleButton.textContent = '☀️';
+}
   </script>
 </body>
 </html>
