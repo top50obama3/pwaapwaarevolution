@@ -23,10 +23,12 @@ headings = []
 node = upcoming_section.find_next_sibling()
 while node:
     if node.name == "h2":
-        break  
-    if node.name == "h3":
-        headings.append(node)
-    print("Tag found:", node.name)
+        break
+    if node.name == "div":
+        h3_inside = node.find("h3")
+        if h3_inside:
+            headings.append(h3_inside)
+            print("Tag found:", node.name)
     node = node.find_next_sibling()
 
 events = []
