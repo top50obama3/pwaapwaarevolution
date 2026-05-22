@@ -2,18 +2,15 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-# ── 1. FETCH THE PAGE ──────────────────────────────────────────
 url = "https://scholarscup.org/calendar/"
 response = requests.get(url)
 soup = BeautifulSoup(response.text, "html.parser")
 
-# ── 2. DATE REGEX ──────────────────────────────────────────────
 date_pattern = re.compile(
     r'(January|February|March|April|May|June|July|August|September|October|November|December)'
     r'\s+\d{1,2}(?:[–\-]\d{1,2})?,?\s+\d{4}'
 )
 
-# ── 3. FIND ALL EVENTS ─────────────────────────────────────────
 events = []
 headings = soup.find_all("h3")
 
@@ -25,7 +22,6 @@ for h3 in headings:
     h4 = h3.find_next_sibling("h4")
     location = h4.get_text(strip=True) if h4 else "TBA"
 
-    # Grab raw HTML after h4, search for date pattern
     date_text = "Date TBA"
     if h4:
         raw = ""
@@ -45,7 +41,6 @@ for h3 in headings:
 
 print(f"Found {len(events)} events")
 
-# ── 4. BUILD HTML ──────────────────────────────────────────────
 calendar_rows = ""
 for event in events:
     calendar_rows += f"""
@@ -67,7 +62,6 @@ new_calendar_html = f"""<!-- CALENDAR-START -->
   </div>
 <!-- CALENDAR-END -->"""
 
-# ── 5. INJECT INTO index.html ──────────────────────────────────
 with open("index.html", "r", encoding="utf-8") as f:
     html = f.read()
 
@@ -81,4 +75,4 @@ updated_html = re.sub(
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(updated_html)
 
-print("Calendar updated successfully!")ith {len(events)} events!")
+print("Calendar updated successfully!")
