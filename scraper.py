@@ -11,8 +11,22 @@ date_pattern = re.compile(
     r'\s+\d{1,2}(?:[–\-]\d{1,2})?,?\s+\d{4}'
 )
 
-events = []
-headings = soup.find_all("h3")
+upcoming_section = soup.find("h2", string=lambda t: t and "Upcoming Regional" in t)
+
+if not upcoming_section:
+    print("Could not find Upcoming Regional Events section!")
+    exit()
+
+headings = []
+node = upcoming_section.find_next_sibling()
+while node:
+    if node.name == "h2":
+        break  
+    if node.name == "h3":
+        headings.append(node)
+    node = node.find_next_sibling()
+
+for h3 in headings:
 
 for h3 in headings:
     name = h3.get_text(strip=True)
