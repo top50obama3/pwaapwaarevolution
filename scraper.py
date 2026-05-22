@@ -27,8 +27,6 @@ while node:
     node = node.find_next_sibling()
 
 for h3 in headings:
-
-for h3 in headings:
     name = h3.get_text(strip=True)
     if not any(word in name for word in ["Round", "Tournament", "Global", "Champions"]):
         continue
