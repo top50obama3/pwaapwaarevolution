@@ -26,6 +26,7 @@ while node:
         break  
     if node.name == "h3":
         headings.append(node)
+    print("Tag found:", node.name)
     node = node.find_next_sibling()
 
 events = []
