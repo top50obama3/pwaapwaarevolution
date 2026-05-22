@@ -12,6 +12,8 @@ date_pattern = re.compile(
 )
 
 upcoming_section = soup.find("h2", string=lambda t: t and "Upcoming Regional" in t)
+section = soup.find(string=lambda t: t and "Upcoming Regional" in t)
+print("Found section tag:", section.parent.name if section else "NOT FOUND")
 
 if not upcoming_section:
     print("Could not find Upcoming Regional Events section!")
