@@ -26,6 +26,8 @@ while node:
         headings.append(node)
     node = node.find_next_sibling()
 
+events = []
+
 for h3 in headings:
     name = h3.get_text(strip=True)
     if not any(word in name for word in ["Round", "Tournament", "Global", "Champions"]):
