@@ -1207,7 +1207,7 @@ function applyTheme(dark) {
   document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
   track.style.background = dark ? '#FFC000' : '#444';
   thumb.style.transform = dark ? 'translateX(20px)' : 'translateX(0)';
-  thumb.textContent = dark ? '☀️' : ':D ';
+  thumb.textContent = dark ? ':O' : ':D ';
   checkbox.checked = dark;
   localStorage.setItem('theme', dark ? 'dark' : 'light');
 }
