@@ -706,7 +706,13 @@ li:hover .dropdown {
       <li><a href="#" onclick="showTab('team')">Team</a></li>
       <li><a href="#" onclick="showTab('community')">Community</a></li>
     </ul>
-    <button id="theme-toggle" style="background: none; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; margin-left: 16px;">:D</button>
+    <label id="theme-toggle" style="display:inline-flex; align-items:center; cursor:pointer; margin-left:16px;">
+  <div style="position:relative; width:44px; height:24px;">
+    <input type="checkbox" id="theme-checkbox" style="opacity:0; width:0; height:0; position:absolute;">
+    <span id="toggle-track" style="position:absolute; inset:0; background:#444; border-radius:24px; transition:background 0.3s;"></span>
+    <span id="toggle-thumb" style="position:absolute; top:3px; left:3px; width:18px; height:18px; background:#fff; border-radius:50%; transition:transform 0.3s; display:flex; align-items:center; justify-content:center; font-size:11px;">:D</span>
+  </div>
+</label>
   </nav>
 
   <div id="side-menu">
@@ -1193,21 +1199,23 @@ li:hover .dropdown {
       menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
     }
     
-    const toggleButton = document.getElementById('theme-toggle');
-   
-toggleButton.addEventListener('click', () => {
- const currentTheme = document.documentElement.getAttribute('data-theme');
- const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
- document.documentElement.setAttribute('data-theme', newTheme);
- localStorage.setItem('theme', newTheme);
- toggleButton.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-});
+    const checkbox = document.getElementById('theme-checkbox');
+const track = document.getElementById('toggle-track');
+const thumb = document.getElementById('toggle-thumb');
+
+function applyTheme(dark) {
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  track.style.background = dark ? '#FFC000' : '#444';
+  thumb.style.transform = dark ? 'translateX(20px)' : 'translateX(0)';
+  thumb.textContent = dark ? '☀️' : '🌙';
+  checkbox.checked = dark;
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+}
+
+checkbox.addEventListener('change', () => applyTheme(checkbox.checked));
 
 const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  if (savedTheme === 'dark') toggleButton.textContent = '☀️';
-}
+if (savedTheme === 'dark') applyTheme(true);
   </script>
 </body>
 </html>
